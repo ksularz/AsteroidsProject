@@ -1,14 +1,24 @@
 package com.mygdx.game;
 
-public class View extends DualLink{
+import com.badlogic.gdx.graphics.g2d.PolygonSpriteBatch;
 
-	@Override
-	public void OnNotify(Subject s) {
-		
-		
-	}
+public class View extends DualLink {
+    Model model;
 
-	
-	
-	
+    public View() {
+        model = new Model();
+        model.addObserver(this);
+    }
+
+    @Override
+    public void onNotify(Subject s) {
+    }
+
+    public void render(PolygonSpriteBatch psb) {
+        model.checkForInput();
+        psb.begin();
+        model.drawEntities(psb);
+        psb.end();
+        model.update();
+    }
 }

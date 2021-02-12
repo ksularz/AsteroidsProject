@@ -4,18 +4,19 @@ import java.util.ArrayList;
 
 public class Subject {
 
-	ArrayList<Observer> observers;
+	private ArrayList<Observer> observers;
+
 	public Subject() {
-		observers=new ArrayList<Observer>();
+		observers=new ArrayList<>();
 	}
-	
-	public void AddObserver(Observer o) {
+
+	public void addObserver(Observer o) {
 		observers.add(o);
 	}
-	
-	public void NotifyAllObserver() {
+
+	public void notifyAllObserver() {
 		for(Observer o:observers)
-			o.OnNotify(this);
+			o.onNotify(this);
 	}
-	
+
 }
